@@ -38,5 +38,37 @@ public class PolicyHandler {
         // Sample Logic //
         Reservation.updateStatus(event);
     }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='TicketIncreased'"
+    )
+    public void wheneverTicketIncreased_UpdateStatus(
+        @Payload TicketIncreased ticketIncreased
+    ) {
+        TicketIncreased event = ticketIncreased;
+        System.out.println(
+            "\n\n##### listener UpdateStatus : " + ticketIncreased + "\n\n"
+        );
+
+        // Sample Logic //
+        Reservation.updateStatus(event);
+    }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='TicketDecreased'"
+    )
+    public void wheneverTicketDecreased_UpdateStatus(
+        @Payload TicketDecreased ticketDecreased
+    ) {
+        TicketDecreased event = ticketDecreased;
+        System.out.println(
+            "\n\n##### listener UpdateStatus : " + ticketDecreased + "\n\n"
+        );
+
+        // Sample Logic //
+        Reservation.updateStatus(event);
+    }
 }
 //>>> Clean Arch / Inbound Adaptor

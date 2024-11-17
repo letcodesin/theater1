@@ -69,6 +69,54 @@ public class Reservation {
         */
 
     }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
+    public static void updateStatus(TicketIncreased ticketIncreased) {
+        //implement business logic here:
+
+        /** Example 1:  new item 
+        Reservation reservation = new Reservation();
+        repository().save(reservation);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(ticketIncreased.get???()).ifPresent(reservation->{
+            
+            reservation // do something
+            repository().save(reservation);
+
+
+         });
+        */
+
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
+    public static void updateStatus(TicketDecreased ticketDecreased) {
+        //implement business logic here:
+
+        /** Example 1:  new item 
+        Reservation reservation = new Reservation();
+        repository().save(reservation);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(ticketDecreased.get???()).ifPresent(reservation->{
+            
+            reservation // do something
+            repository().save(reservation);
+
+
+         });
+        */
+
+    }
     //>>> Clean Arch / Port Method
 
 }
