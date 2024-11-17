@@ -61,54 +61,33 @@ public class Notification {
 
     }
 
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
     public static void notify(TicketDecreased ticketDecreased) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
         Notification notification = new Notification();
+        notification.setReserveId(ticketDecreased.getId());
+        notification.setReserveStatus("예약완료");
+        notification.setUserId(ticketDecreased.getUserId());
+        notification.setUserName(ticketDecreased.getUserName());
+        notification.setMovieName(ticketDecreased.getMovieName());
+        notification.setCount(ticketDecreased.getCount());
         repository().save(notification);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(ticketDecreased.get???()).ifPresent(notification->{
-            
-            notification // do something
-            repository().save(notification);
-
-
-         });
-        */
 
     }
 
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
+
     public static void notify(OutOfCount outOfCount) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
         Notification notification = new Notification();
+        notification.setReserveId(outOfCount.getId());
+        notification.setReserveStatus("예약취소");
+        notification.setUserId(outOfCount.getUserId());
+        notification.setUserName(outOfCount.getUserName());
+        notification.setMovieName(outOfCount.getMovieName());
+        notification.setCount(outOfCount.getCount());
         repository().save(notification);
 
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(outOfCount.get???()).ifPresent(notification->{
-            
-            notification // do something
-            repository().save(notification);
-
-
-         });
-        */
-
     }
-    //>>> Clean Arch / Port Method
+
 
 }
 //>>> DDD / Aggregate Root
