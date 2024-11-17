@@ -77,6 +77,9 @@ public class Movie {
                 ticketDecreased.setReserveId(reserved.getId());
                 ticketDecreased.setUserId(reserved.getUserId());
                 ticketDecreased.setUserName(reserved.getUserName());
+                ticketDecreased.setMovieId(id);
+                ticketDecreased.setMovieName(movieName);
+                ticketDecreased.setCount(reserved.getCount());
                 ticketDecreased.publishAfterCommit();
             }
             else{
