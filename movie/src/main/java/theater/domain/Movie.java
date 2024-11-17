@@ -46,7 +46,7 @@ public class Movie {
     }
 
     //<<< Clean Arch / Port Method
-    public static void increaseTicket(Reserved reserved) {
+    public static void increaseTicket(ReserveCanceled reserveCanceled) {
         //implement business logic here:
 
         /** Example 1:  new item 
@@ -59,7 +59,7 @@ public class Movie {
 
         /** Example 2:  finding and process
         
-        repository().findById(reserved.get???()).ifPresent(movie->{
+        repository().findById(reserveCanceled.get???()).ifPresent(movie->{
             
             movie // do something
             repository().save(movie);
@@ -74,7 +74,7 @@ public class Movie {
 
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
-    public static void decreaseTicket(ReserveCanceled reserveCanceled) {
+    public static void decreaseTicket(Reserved reserved) {
         //implement business logic here:
 
         /** Example 1:  new item 
@@ -87,7 +87,7 @@ public class Movie {
 
         /** Example 2:  finding and process
         
-        repository().findById(reserveCanceled.get???()).ifPresent(movie->{
+        repository().findById(reserved.get???()).ifPresent(movie->{
             
             movie // do something
             repository().save(movie);
