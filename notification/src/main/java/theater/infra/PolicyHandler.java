@@ -54,5 +54,19 @@ public class PolicyHandler {
         // Sample Logic //
         Notification.notify(event);
     }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='OutOfCount'"
+    )
+    public void wheneverOutOfCount_Notify(@Payload OutOfCount outOfCount) {
+        OutOfCount event = outOfCount;
+        System.out.println(
+            "\n\n##### listener Notify : " + outOfCount + "\n\n"
+        );
+
+        // Sample Logic //
+        Notification.notify(event);
+    }
 }
 //>>> Clean Arch / Inbound Adaptor
