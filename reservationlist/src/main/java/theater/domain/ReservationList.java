@@ -19,6 +19,6 @@ public class ReservationList {
     private Long reserveId;
     private String reserveStatus;
     private Long userId;
-    private Long movieId;
+    private String movieName;
     private Integer count;
 }

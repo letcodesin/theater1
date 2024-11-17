@@ -16,5 +16,42 @@ public class ReservationListViewHandler {
     //<<< DDD / CQRS
     @Autowired
     private ReservationListRepository reservationListRepository;
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenTicketIncreased_then_CREATE_1(
+        @Payload TicketIncreased ticketIncreased
+    ) {
+        try {
+            if (!ticketIncreased.validate()) return;
+
+            // view 객체 생성
+            ReservationList reservationList = new ReservationList();
+            // view 객체에 이벤트의 Value 를 set 함
+            reservationList.setReserveId(ticketIncreased.getId());
+            reservationList.setReserveStatus("예약완료");
+            reservationList.setUserId(ticketIncreased.getUserId());
+            reservationList.setCount(ticketIncreased.getCount());
+            reservationList.setMovieName(ticketIncreased.getMovieName());
+            // view 레파지 토리에 save
+            reservationListRepository.save(reservationList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenTicketDecreased_then_DELETE_1(
+        @Payload TicketDecreased ticketDecreased
+    ) {
+        try {
+            if (!ticketDecreased.validate()) return;
+            // view 레파지 토리에 삭제 쿼리
+            reservationListRepository.deleteByReserveId(
+                ticketDecreased.getReserveId()
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     //>>> DDD / CQRS
 }

@@ -25,7 +25,7 @@
                 { text: "reserveId", value: "reserveId" },
                 { text: "reserveStatus", value: "reserveStatus" },
                 { text: "userId", value: "userId" },
-                { text: "movieId", value: "movieId" },
+                { text: "movieName", value: "movieName" },
                 { text: "count", value: "count" },
             ],
             reservationList : [],
