@@ -16,7 +16,7 @@
                 <Number label="UserId" v-model="item.userId" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <Number label="MovieId" v-model="item.movieId" :editMode="editMode" @change="change" />
+                <String label="MovieName" v-model="item.movieName" :editMode="editMode" @change="change" />
             </div>
             <div>
                 <Number label="Count" v-model="item.count" :editMode="editMode" @change="change" />

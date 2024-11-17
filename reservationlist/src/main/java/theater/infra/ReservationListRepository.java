@@ -10,4 +10,6 @@ import theater.domain.*;
     path = "reservationLists"
 )
 public interface ReservationListRepository
-    extends PagingAndSortingRepository<ReservationList, Long> {}
+    extends PagingAndSortingRepository<ReservationList, Long> {
+    void deleteByReserveId(Long reserveId);
+}
