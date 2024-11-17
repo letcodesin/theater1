@@ -18,20 +18,20 @@ public class ReservationListViewHandler {
     private ReservationListRepository reservationListRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenTicketIncreased_then_CREATE_1(
-        @Payload TicketIncreased ticketIncreased
+    public void whenTicketDecreased_then_CREATE_1(
+        @Payload TicketDecreased ticketDecreased
     ) {
         try {
-            if (!ticketIncreased.validate()) return;
+            if (!ticketDecreased.validate()) return;
 
             // view 객체 생성
             ReservationList reservationList = new ReservationList();
             // view 객체에 이벤트의 Value 를 set 함
-            reservationList.setReserveId(ticketIncreased.getId());
+            reservationList.setReserveId(ticketDecreased.getId());
             reservationList.setReserveStatus("예약완료");
-            reservationList.setUserId(ticketIncreased.getUserId());
-            reservationList.setCount(ticketIncreased.getCount());
-            reservationList.setMovieName(ticketIncreased.getMovieName());
+            reservationList.setUserId(ticketDecreased.getUserId());
+            reservationList.setCount(ticketDecreased.getCount());
+            reservationList.setMovieName(ticketDecreased.getMovieName());
             // view 레파지 토리에 save
             reservationListRepository.save(reservationList);
         } catch (Exception e) {
@@ -40,14 +40,14 @@ public class ReservationListViewHandler {
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenTicketDecreased_then_DELETE_1(
-        @Payload TicketDecreased ticketDecreased
+    public void whenTicketIncreased_then_DELETE_1(
+        @Payload TicketIncreased ticketIncreased
     ) {
         try {
-            if (!ticketDecreased.validate()) return;
+            if (!ticketIncreased.validate()) return;
             // view 레파지 토리에 삭제 쿼리
             reservationListRepository.deleteByReserveId(
-                ticketDecreased.getReserveId()
+                ticketIncreased.getReserveId()
             );
         } catch (Exception e) {
             e.printStackTrace();
