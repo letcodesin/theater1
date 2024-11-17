@@ -35,7 +35,9 @@ public class Reservation {
     public void onPostPersist() {
         Reserved reserved = new Reserved(this);
         reserved.publishAfterCommit();
+    }
 
+    public void reserveCancel(){
         ReserveCanceled reserveCanceled = new ReserveCanceled(this);
         reserveCanceled.publishAfterCommit();
     }
@@ -47,74 +49,44 @@ public class Reservation {
         return reservationRepository;
     }
 
-    //<<< Clean Arch / Port Method
     public static void updateStatus(OutOfCount outOfCount) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Reservation reservation = new Reservation();
-        repository().save(reservation);
-
-        */
-
-        /** Example 2:  finding and process
         
-        repository().findById(outOfCount.get???()).ifPresent(reservation->{
-            
-            reservation // do something
+        repository().findById(outOfCount.getReserveId()).ifPresent(reservation->{
+            reservation.setUserId(outOfCount.getUserId());
+            reservation.setUserName(outOfCount.getUserName());
+            reservation.setReserveStatus("예약취소");
             repository().save(reservation);
-
-
          });
-        */
+        
 
     }
 
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
+
     public static void updateStatus(TicketIncreased ticketIncreased) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Reservation reservation = new Reservation();
-        repository().save(reservation);
-
-        */
-
-        /** Example 2:  finding and process
         
-        repository().findById(ticketIncreased.get???()).ifPresent(reservation->{
-            
-            reservation // do something
+        repository().findById(ticketIncreased.getReserveId()).ifPresent(reservation->{
+            reservation.setUserId(ticketIncreased.getUserId());
+            reservation.setUserName(ticketIncreased.getUserName());
+            reservation.setReserveStatus("예약취소");
             repository().save(reservation);
 
 
          });
-        */
+        
 
     }
 
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
     public static void updateStatus(TicketDecreased ticketDecreased) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
-        Reservation reservation = new Reservation();
-        repository().save(reservation);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(ticketDecreased.get???()).ifPresent(reservation->{
-            
-            reservation // do something
+        repository().findById(ticketDecreased.getReserveId()).ifPresent(reservation->{
+            reservation.setUserId(ticketDecreased.getUserId());
+            reservation.setUserName(ticketDecreased.getUserName());
+            reservation.setReserveStatus("예약완료");
             repository().save(reservation);
 
 
          });
-        */
+        
 
     }
     //>>> Clean Arch / Port Method

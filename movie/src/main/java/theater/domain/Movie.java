@@ -45,58 +45,50 @@ public class Movie {
         return movieRepository;
     }
 
-    //<<< Clean Arch / Port Method
+
     public static void increaseTicket(ReserveCanceled reserveCanceled) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
-        Movie movie = new Movie();
-        repository().save(movie);
-
-        TicketIncreased ticketIncreased = new TicketIncreased(movie);
-        ticketIncreased.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(reserveCanceled.get???()).ifPresent(movie->{
+        repository().findById(reserveCanceled.getMovieId()).ifPresent(movie->{
             
-            movie // do something
+            movie.setQty(movie.getQty() + reserveCanceled.getCount());
             repository().save(movie);
 
             TicketIncreased ticketIncreased = new TicketIncreased(movie);
+            ticketIncreased.setReserveId(reserveCanceled.getId());
+            ticketIncreased.setUserId(reserveCanceled.getUserId());
+            ticketIncreased.setUserName(reserveCanceled.getUserName());
             ticketIncreased.publishAfterCommit();
 
          });
-        */
 
     }
 
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
+
     public static void decreaseTicket(Reserved reserved) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
-        Movie movie = new Movie();
-        repository().save(movie);
-
-        TicketDecreased ticketDecreased = new TicketDecreased(movie);
-        ticketDecreased.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
         
-        repository().findById(reserved.get???()).ifPresent(movie->{
-            
-            movie // do something
-            repository().save(movie);
+        repository().findById(reserved.getMovieId()).ifPresent(movie->{
 
-            TicketDecreased ticketDecreased = new TicketDecreased(movie);
-            ticketDecreased.publishAfterCommit();
+            if(movie.getQty() > reserved.getCount()){
+                movie.setQty(movie.getQty() - reserved.getCount());
+                repository().save(movie);
+
+                TicketDecreased ticketDecreased = new TicketDecreased(movie);
+                ticketDecreased.setReserveId(reserved.getId());
+                ticketDecreased.setUserId(reserved.getUserId());
+                ticketDecreased.setUserName(reserved.getUserName());
+                ticketDecreased.publishAfterCommit();
+            }
+            else{
+                OutOfCount outOfCount = new OutOfCount(movie);
+                outOfCount.setReserveId(reserved.getId());
+                outOfCount.setUserId(reserved.getUserId());
+                outOfCount.setUserName(reserved.getUserName());
+                outOfCount.publishAfterCommit();
+            }
 
          });
-        */
+        
 
     }
     //>>> Clean Arch / Port Method
