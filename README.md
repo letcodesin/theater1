@@ -89,3 +89,7 @@ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/d
 sudo mv /tmp/eksctl /usr/local/bin
 ```
 
+# 영화예매 시스템
+
+# 서비스 시나리오
+
