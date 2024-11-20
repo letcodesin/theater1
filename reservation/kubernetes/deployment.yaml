@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: reservation
-          image: "swjfberd/reservation:02"
+          image: swjfberd/reservation:03
           ports:
             - containerPort: 8080
           resources:
