@@ -16,27 +16,22 @@ spec:
     spec:
       containers:
         - name: reservation
-          image: swjfberd/reservation:03
+          image: "swjfberd/reservation:05"
           ports:
             - containerPort: 8080
-          resources:
-            requests:
-              cpu: 100m
-            limits:
-              cpu: 500m
           readinessProbe:
             httpGet:
               path: '/actuator/health'
               port: 8080
-            initialDelaySeconds: 20
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 10
+            initialDelaySeconds: 20  # 초기화 시간을 충분히 확보
+            timeoutSeconds: 3        # 응답 시간 확보
+            periodSeconds: 10        # 체크 간격 조정
+            failureThreshold: 5      # 연속 실패 허용 범위 축소
           livenessProbe:
             httpGet:
               path: '/actuator/health'
               port: 8080
-            initialDelaySeconds: 120
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 5
+            initialDelaySeconds: 180 # 애플리케이션 완전 초기화 시간 확보
+            timeoutSeconds: 5        # Liveness 응답 허용 시간 증가
+            periodSeconds: 20        # 체크 주기 확대
+            failureThreshold: 3      # 연속 실패 허용 범위 축소
