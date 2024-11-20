@@ -16,9 +16,12 @@ spec:
     spec:
       containers:
         - name: movie
-          image: "swjfberd/movie:01"
+          image: "swjfberd/movie:02"
           ports:
             - containerPort: 8080
+          resources:
+            requests:
+              cpu: "200m" 
           readinessProbe:
             httpGet:
               path: '/actuator/health'
