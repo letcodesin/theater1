@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: reservationlist
-          image: "username/reservationlist:latest"
+          image: "swjfberd/reservationlist:01"
           ports:
             - containerPort: 8080
           readinessProbe:
