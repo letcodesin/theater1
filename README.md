@@ -192,7 +192,7 @@ MSA/DDD/Event Storming/EDA 를 포괄하는 분석/설계/구현/운영 전단�
 ![image](https://github.com/user-attachments/assets/a8341bb8-d6a9-44e8-acdd-d144011b5549)
 > 새로 배포한 movie 서비스의 pod2에서도 동일한 test.txt파일을 확인할 수 있다.
 
-# 셀프 힐링/ 무정지 배포 - Liveness/Rediness Probe
+# 셀프 힐링/ 무정지 배포 - Liveness/Readiness Probe
 ![readiness01](https://github.com/user-attachments/assets/05f2097e-53b8-4f6d-95aa-47833f4f31f0)
 ![readiness02](https://github.com/user-attachments/assets/32493f48-b131-4e12-bd39-8724a239f9d3)
 > readiness 코드가 없는 상태에서 서비스 중인 movie 서비스의 image버전을 수정해 재배포하면 도중에 서비스가 끊기는 구간이 존재한다.
