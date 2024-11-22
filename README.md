@@ -154,11 +154,11 @@ MSA/DDD/Event Storming/EDA 를 포괄하는 분석/설계/구현/운영 전단�
 # 클라우드 배포 - Container 운영
 ![클라우드배포_CI01](https://github.com/user-attachments/assets/23d91f57-7635-4384-aa50-74c085b29e03)
 ![클라우드배포_CI02](https://github.com/user-attachments/assets/69192e48-4406-4a69-93f7-f4b2773ef729)
-> Azure DevOps를 통해 movie-CI가 정상적으로 배포된 것을 확인할 수 있다.
+> Azure DevOps를 통해 movie-CI가 정상적으로 생성된 것을 확인할 수 있다.
   
 ![클라우드배포_CD01](https://github.com/user-attachments/assets/0cf4cfaa-7ad7-4e49-89de-45cd02b6b15f)
 ![클라우드배포_CD02](https://github.com/user-attachments/assets/892a47ce-ce39-479d-98ea-aa1db8f97bf5)
-> Azure DevOps를 통해 Movie-CD가 정상적으로 배포된 것을 확인할 수 있다.
+> Azure DevOps를 통해 Movie-CD가 정상적으로 생성된 것을 확인할 수 있다.
   
 ![클라우드배포_CD03](https://github.com/user-attachments/assets/2f16a71b-0b84-4cbf-95db-0cd8099a8caf)
 > Kubernetes에서 movie 서비스가 잘 배포된 것을 확인할 수 있다.
