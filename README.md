@@ -101,7 +101,7 @@ MSA/DDD/Event Storming/EDA 를 포괄하는 분석/설계/구현/운영 전단�
 6. 고객이 영화를 예매하거나 취소하면 알림 메시지를 발송한다.
 
 # 클라우드 아키텍처 설계
-![아키텍처설계01](https://github.com/user-attachments/assets/81a8d6a4-8938-49c7-9fd1-af4967302f98)
+![image](https://github.com/user-attachments/assets/e4980966-1a20-4a8d-92be-667a33b46d96)
 
 # 도메인분석 - 이벤트스토밍
 ![이벤트스토밍_theater1](https://github.com/user-attachments/assets/0b4ef8f8-887f-4cc5-927a-d5384914e0e7)
