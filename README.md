@@ -223,6 +223,6 @@ MSA/DDD/Event Storming/EDA 를 포괄하는 분석/설계/구현/운영 전단�
 > seige를 통해 movie 서비스에 부하를 넣으면 Prometheus에서 그래프로 확인할 수 있다.
   
 ![모니터링04](https://github.com/user-attachments/assets/927b4689-59ee-4d6c-b4d3-f6cfdb59bab8)
-> Grandfa에서도 동일하게 확인할 수 있다.
+> Grafana에서도 동일하게 확인할 수 있다.
 
 
