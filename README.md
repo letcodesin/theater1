@@ -148,7 +148,7 @@ MSA/DDD/Event Storming/EDA 를 포괄하는 분석/설계/구현/운영 전단�
 ![gateway05](https://github.com/user-attachments/assets/f4b4d371-a440-4549-aec3-a4c2ac119f1f)
 
 # 분산 데이터 프로젝션 - CQRS 
-![image](https://github.com/user-attachments/assets/73a0461e-6d84-410e-8e53-afa4f81f4415)
+![image](https://github.com/user-attachments/assets/7d91e718-03dd-4d34-86ac-0fc8046bfd6b)
 > 예약이 완료되었을 때 예약목록에서 예약내역이 보여진다. 예약이 취소 되는 경우에는 예약목록에서 삭제된다.
 
 # 클라우드 배포 - Container 운영
